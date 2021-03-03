@@ -34,8 +34,10 @@ dependencies {
 
     implementation rxJavaDep
     implementation daggerDep
+    kapt daggerKapt
 
     implementation roomDep
+    implementation roomRxDep
     kapt roomKapt
 
     testImplementation jUnitDep

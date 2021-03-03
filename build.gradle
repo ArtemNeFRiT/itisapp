@@ -49,6 +49,7 @@ buildscript {
         roomDep = "androidx.room:room-runtime:$architectureComponentVersion"
         roomKtxDep = "androidx.room:room-ktx:$architectureComponentVersion"
         roomKapt = "androidx.room:room-compiler:$architectureComponentVersion"
+        roomRxDep = "androidx.room:room-rxjava2:$architectureComponentVersion"
 
         navigationFragmentDep = "androidx.navigation:navigation-fragment-ktx:$navControllerVersion"
         navigationUiDep = "androidx.navigation:navigation-ui-ktx:$navControllerVersion"
