@@ -1,10 +1,12 @@
 package com.technokratos.itisapp.user.list.di
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.technokratos.itisapp.di.ScreenScope
-import com.technokratos.itisapp.user.list.MainActivity
+import com.technokratos.itisapp.MainActivity
+import com.technokratos.itisapp.router.AppRouter
+import com.technokratos.itisapp.user.list.UserListFragment
 import dagger.BindsInstance
-import dagger.Module
 import dagger.Subcomponent
 
 @Subcomponent(
@@ -19,9 +21,10 @@ interface UserListComponent {
     interface Factory {
 
         fun create(
-            @BindsInstance activity: AppCompatActivity
+            @BindsInstance fragment: Fragment,
+            @BindsInstance router: AppRouter
         ): UserListComponent
     }
 
-    fun inject(mainActivity: MainActivity)
+    fun inject(usersListFragment: UserListFragment)
 }

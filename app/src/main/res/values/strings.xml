@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Itis app</string>
+    <string name="user_info_mask">User, name: %s, age: %s</string>
 </resources>

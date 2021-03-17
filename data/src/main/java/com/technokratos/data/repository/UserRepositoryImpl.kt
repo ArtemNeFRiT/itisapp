@@ -1,7 +1,6 @@
 package com.technokratos.data.repository
 
 import com.technokratos.data.db.dao.UserDao
-import com.technokratos.data.db.model.UserLocal
 import com.technokratos.data.mappers.mapUserLocalToUser
 import com.technokratos.data.mappers.mapUserRemoteToUserLocal
 import com.technokratos.data.network.UserApi
@@ -13,7 +12,7 @@ import io.reactivex.Observable
 class UserRepositoryImpl(
     val userApi: UserApi,
     val userDao: UserDao
-): UserRepository {
+) : UserRepository {
 
     override fun getUsers(): Observable<List<User>> {
         return userDao.observeUsers()
@@ -29,6 +28,7 @@ class UserRepositoryImpl(
     }
 
     override fun getUser(id: Int): Observable<User> {
-        return Observable.empty()
+        return userDao.observeUser(id)
+            .map(::mapUserLocalToUser)
     }
 }

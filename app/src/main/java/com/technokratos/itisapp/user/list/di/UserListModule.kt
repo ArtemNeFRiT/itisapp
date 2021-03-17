@@ -1,11 +1,11 @@
 package com.technokratos.itisapp.user.list.di
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.technokratos.domain.UserInteractor
 import com.technokratos.itisapp.di.ViewModelModule
+import com.technokratos.itisapp.router.AppRouter
 import com.technokratos.itisapp.user.list.UserListViewModel
 import dagger.Module
 import dagger.Provides
@@ -19,13 +19,14 @@ class UserListModule {
     @IntoMap
     @ViewModelKey(UserListViewModel::class)
     fun provideViewModel(
-        interactor: UserInteractor
+        interactor: UserInteractor,
+        router: AppRouter
     ): ViewModel {
-        return UserListViewModel(interactor)
+        return UserListViewModel(interactor, router)
     }
 
     @Provides
-    fun provideViewModelCreator(activity: AppCompatActivity, viewModelFactory: ViewModelProvider.Factory): UserListViewModel {
-        return ViewModelProvider(activity, viewModelFactory).get(UserListViewModel::class.java)
+    fun provideViewModelCreator(fragment: Fragment, viewModelFactory: ViewModelProvider.Factory): UserListViewModel {
+        return ViewModelProvider(fragment, viewModelFactory).get(UserListViewModel::class.java)
     }
 }

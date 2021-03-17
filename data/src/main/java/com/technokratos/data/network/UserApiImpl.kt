@@ -8,7 +8,7 @@ class UserApiImpl: UserApi {
 
     override fun getUsers(): Single<GetUsersResponse> {
         val mockUsers = mutableListOf<UserRemote>().apply {
-            add(UserRemote(1, "Иван", "Иванов", 18, "Иванович"))
+            add(UserRemote(1, "Иван", "Иванов", 21, "Иванович"))
             add(UserRemote(2, "Петр", "Сергеев", 18, "Максимович"))
         }
         return Single.just(GetUsersResponse(mockUsers))

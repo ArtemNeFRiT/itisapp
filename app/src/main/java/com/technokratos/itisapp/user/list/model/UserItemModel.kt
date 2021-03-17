@@ -1,6 +1,6 @@
 package com.technokratos.itisapp.user.list.model
 
-data class UserModel(
+data class UserItemModel(
     val id: Int,
     val name: String,
     val age: String

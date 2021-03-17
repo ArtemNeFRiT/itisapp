@@ -1,0 +1,29 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_nav_graph"
+    app:startDestination="@id/usersFragment">
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.technokratos.itisapp.user.list.UserListFragment"
+        tools:layout="@layout/fragment_users">
+
+        <action
+            android:id="@+id/action_users_to_user_details"
+            app:destination="@id/userDetailsFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit"  />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.technokratos.itisapp.user.details.UserDetailsFragment"
+        tools:layout="@layout/fragment_user">
+
+    </fragment>
+
+</navigation>

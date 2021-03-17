@@ -13,6 +13,9 @@ interface UserDao {
     @Query("select * from users")
     fun observeUsers(): Observable<List<UserLocal>>
 
+    @Query("select * from users where id = :id")
+    fun observeUser(id: Int): Observable<UserLocal>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUsers(users: List<UserLocal>)
 }
